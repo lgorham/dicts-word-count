@@ -1,4 +1,5 @@
 import sys
+import collections
 
 def word_count(filename):
     """"
@@ -6,14 +7,18 @@ def word_count(filename):
     """
 
     file_data = open(filename)
-    occurance = {}
+    occurance = collections.Counter()
     for line in file_data:
         line = line.rstrip().replace("--", " ").split(" ")
-        for word in line:
-            word = word.strip("?,!.;-\":_").lower()
-            occurance[word] = occurance.get(word, 0) + 1
-    for word, count in occurance.items():
-        print word, count
+        occurance.update(line)
+    print occurance
+        ###for word in line:
+           ### word = word.strip("?,!.;-\":_").lower()
+            ###print word
+            ###occurance.update(word)
+            #print occurance
+    #for word, count in occurance:
+        #print occurance
         
 
 word_count(sys.argv[1])
