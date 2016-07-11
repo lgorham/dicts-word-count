@@ -1,3 +1,5 @@
+import sys
+
 def word_count(filename):
     """"
     Takes a file and parses each words and prints out how many times the word appears
@@ -14,4 +16,4 @@ def word_count(filename):
         print word, count
         
 
-word_count("twain.txt")
+word_count(sys.argv[1])
